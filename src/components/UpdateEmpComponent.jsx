@@ -7,6 +7,7 @@ import { Form, FormGroup, Label, Input, Button, Container } from 'reactstrap';
 const UpdateEmpComponent = () => {
     const { id } = useParams();
     const [employee, setEmployee] = useState({
+        id: '',
         name: '',
         age: '',
         salary: '',
@@ -47,6 +48,17 @@ const UpdateEmpComponent = () => {
         <Container>
             <h2>Update Employee</h2>
             <Form onSubmit={handleSubmit}>
+            <FormGroup>
+                    <Label for="id">Employee ID</Label>
+                    <Input
+                        type="number"
+                        name="id"
+                        id="id"
+                        value={employee.id}
+                        onChange={handleChange}
+                        required
+                    />
+                </FormGroup>
                 <FormGroup>
                     <Label for="name">Name</Label>
                     <Input

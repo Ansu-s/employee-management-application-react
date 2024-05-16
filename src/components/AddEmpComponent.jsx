@@ -5,6 +5,7 @@ import {APP_PROPS} from "../constants/ServerUrl";
 
 const AddEmployee = () => {
     const [employee, setEmployee] = useState({
+        id: '',
         name: '',
         age: '',
         salary: '',
@@ -26,6 +27,7 @@ const AddEmployee = () => {
                 setSuccess('Employee added successfully!');
                 setError(null);
                 setEmployee({
+                    id: '',
                     name: '',
                     age: '',
                     salary: '',
@@ -44,6 +46,17 @@ const AddEmployee = () => {
             {error && <Alert color="danger">{error}</Alert>}
             {success && <Alert color="success">{success}</Alert>}
             <Form onSubmit={handleSubmit}>
+            <FormGroup>
+                    <Label for="id">Employee ID</Label>
+                    <Input
+                        type="number"
+                        name="id"
+                        id="id"
+                        value={employee.id}
+                        onChange={handleChange}
+                        required
+                    />
+                </FormGroup>
                 <FormGroup>
                     <Label for="name">Name</Label>
                     <Input
